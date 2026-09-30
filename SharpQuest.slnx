@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Capstone.Core/Capstone.Core.csproj" />
+    <Project Path="src/Capstone.App/Capstone.App.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Capstone.Tests/Capstone.Tests.csproj" />
+  </Folder>
+  <Folder Name="/contracts/">
+    <Project Path="contracts/SharpQuest.Contracts/SharpQuest.Contracts.csproj" />
+    <Project Path="contracts/SharpQuest.Contracts.Tests/SharpQuest.Contracts.Tests.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,11 @@
+<!--
+  MANAGED FILE: `sq update` and CI replace it with the official copy.
+  Evaluated AFTER each project file, so these settings win over anything a .csproj says.
+-->
+<Project>
+  <PropertyGroup>
+    <!-- Session 2 requirement: zero nullable warnings. A nullable warning is a build error. -->
+    <Nullable>enable</Nullable>
+    <WarningsAsErrors>$(WarningsAsErrors);nullable</WarningsAsErrors>
+  </PropertyGroup>
+</Project>

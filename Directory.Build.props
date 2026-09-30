@@ -1,0 +1,12 @@
+<!--
+  Settings shared by every project in this repository.
+  MANAGED FILE: `sq update` and CI replace it with the official copy.
+-->
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>14</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+</Project>

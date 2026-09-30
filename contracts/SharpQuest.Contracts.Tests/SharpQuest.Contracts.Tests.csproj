@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    MANAGED FOLDER — do not edit anything under contracts/.
+    These are the tests that grade the Contract part of every lab (40%).
+    Read them: they are the most precise statement of what each lab asks for.
+  -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>SharpQuest.Contracts.Tests</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="xunit.v3" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <!-- Lab 11: the tests open your database file with plain SQL, to see the foreign key and the migration history for themselves. -->
+    <PackageReference Include="Microsoft.Data.Sqlite" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpQuest.Contracts\SharpQuest.Contracts.csproj" />
+    <ProjectReference Include="..\..\src\Capstone.Core\Capstone.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition="Exists('$(MSBuildThisFileDirectory)..\..\src\Capstone.Api\Capstone.Api.csproj')">
+    <!--
+      Lab 10 on: your web API is tested by starting it and talking to it over HTTP, so it has to be built
+      with the tests. Only if it exists — before Lab 10 there is no such project, and nothing changes.
+      From the moment it exists it is part of the graded build, like Capstone.Core: keep it compiling.
+    -->
+    <ProjectReference Include="..\..\src\Capstone.Api\Capstone.Api.csproj" />
+  </ItemGroup>
+</Project>

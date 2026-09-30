@@ -54,6 +54,8 @@ bld/
 #!**/[Bb]in/*.refresh
 
 # Visual Studio 2015/2017 cache/options directory
+bin/
+obj/
 .vs/
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
@@ -427,3 +429,18 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+.idea/
+*.user
+test-results/
+score.json
+.official/
+.sq/
+
+# Lab 10: keys for your API client live here, never in a committed file
+.env
+http-client.private.env.json
+
+# Lab 11: a database file is data, not source. The migrations that build it are the source.
+*.db
+*.db-shm
+*.db-wal

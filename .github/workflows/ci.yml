@@ -1,0 +1,66 @@
+# SharpQuest checks — MANAGED FILE, do not edit.
+#
+# Runs on every push. This is the RECORD, not the fast loop: iterate locally with `sq test`,
+# push when it's green. This run is what your Contract score is read from.
+#
+# Before grading, it replaces contracts/ and the build settings with the official copies,
+# so the tests that run here are always the course's tests.
+
+name: SharpQuest checks
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  SQ_UPSTREAM: x86bogdan/sharpquest-2026   # filled in by publish.cs for each cohort
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+jobs:
+  checks:
+    name: Build and test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out your repository
+        uses: actions/checkout@v7
+
+      - name: Check out the official course files
+        uses: actions/checkout@v7
+        with:
+          repository: ${{ env.SQ_UPSTREAM }}
+          path: .official
+
+      - name: Use the official contracts and settings
+        run: |
+          rm -rf contracts
+          cp -r .official/contracts contracts
+          for f in Directory.Build.props Directory.Build.targets Directory.Packages.props global.json sq.cs; do
+            cp ".official/$f" "$f"
+          done
+          echo "Official files at $(git -C .official rev-parse --short HEAD)"
+          rm -rf .official
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v6
+        with:
+          global-json-file: global.json
+
+      - name: Build and test
+        run: dotnet run --file sq.cs -- test --ci
+
+      - name: Keep the score
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: score
+          path: |
+            score.json
+            .sq/results/
+          if-no-files-found: warn
+          retention-days: 90

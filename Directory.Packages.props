@@ -1,0 +1,28 @@
+<!--
+  MANAGED FILE: `sq update` and CI replace it with the official copy.
+  Every NuGet package version the course needs, in one place (pinned 2026-09-16).
+
+  Need another package for your capstone? Create Directory.Packages.local.props next to this file.
+  It is yours and is never replaced:
+
+    <Project>
+      <ItemGroup>
+        <PackageVersion Include="Some.Package" Version="1.2.3" />
+      </ItemGroup>
+    </Project>
+-->
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="xunit.v3" Version="3.2.2" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.9.0" />
+    <!-- Lab 11 (pinned 2026-09-18): EF Core and SQLite, one version for the whole room. The tests read the database file with Microsoft.Data.Sqlite. -->
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.12" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.12" />
+    <PackageVersion Include="Microsoft.Data.Sqlite" Version="10.0.12" />
+  </ItemGroup>
+  <Import Project="Directory.Packages.local.props" Condition="Exists('Directory.Packages.local.props')" />
+</Project>

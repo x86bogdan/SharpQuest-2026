@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    MANAGED FOLDER — do not edit anything under contracts/.
+    `sq update` replaces it with the official copy, and CI does the same before grading.
+    One folder per released lab: Lab02/, Lab03/, ...
+  -->
+  <PropertyGroup>
+    <RootNamespace>SharpQuest.Contracts</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <!--
+      Lab 10's contract names two ASP.NET Core types (IServiceCollection, IEndpointRouteBuilder).
+      ASP.NET Core ships with the .NET SDK as a shared framework, so this is not a package and needs no download.
+      It flows to every project that references the contracts, which is why Lab 10 also checks that
+      Capstone.Core never actually *uses* it: your domain library shouldn't know HTTP exists.
+    -->
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+</Project>

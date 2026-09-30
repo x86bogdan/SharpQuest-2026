@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Your capstone's domain: types, logic, storage. Everything the tests check lives here. -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\contracts\SharpQuest.Contracts\SharpQuest.Contracts.csproj" />
+  </ItemGroup>
+</Project>
