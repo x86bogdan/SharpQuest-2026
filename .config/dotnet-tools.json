@@ -3,18 +3,18 @@
   "isRoot": true,
   "tools": {
     "dotnet-ef": {
-      "version": "10.0.12",
+      "version": "9.0.20",
       "commands": [
         "dotnet-ef"
       ],
-      "rollForward": false
+      "rollForward": true
     },
     "ilspycmd": {
-      "version": "11.0.0.9375",
+      "version": "9.1.0.7988",
       "commands": [
         "ilspycmd"
       ],
-      "rollForward": false
+      "rollForward": true
     }
   }
 }

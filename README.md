@@ -30,8 +30,10 @@ sq test        # as often as you like: build + run everything, see what's left
 git push       # when it's green: CI runs the same tests and records your result
 ```
 
-On Windows, run `sq` from the repository folder (in PowerShell: `.\sq test`). On Linux or macOS: `./sq.sh test`.
-`sq` is a small C# program (`sq.cs`), run by `dotnet run --file sq.cs`. You can read it — session 12 explains how it works.
+On Windows, run `sq` from the repository folder (in PowerShell: `.\sq test`). On Linux or macOS: `sh sq.sh test`.
+
+**No git, on a lab PC?** Download this repository as a ZIP (**Code → Download ZIP**), extract it, open the folder in Rider and use Rider's terminal: `sh sq.sh update`, `sh sq.sh test`. To save your work, `sh sq.sh upload` gathers what to upload, and **Add file → Upload files** on this page takes it. Step by step: [working on a lab PC](https://github.com/x86bogdan/fcpl-2026/blob/main/LAB-PC.md).
+`sq` is a small C# program (`sq.cs`), built and run by `dotnet run --project tools/sq`. The first run takes 10–20 seconds while it builds itself. You can read it — session 12 explains how it works.
 
 **Labs you haven't started show as "not started", not as failures.** Contracts can appear before their session. A lab starts when you add its wiring class (see `src/Capstone.Core/Wiring/`).
 
@@ -55,7 +57,7 @@ Late work and recovery (each worth up to 8; at most 2 recoveries per recovery se
 | `reference/` | One theme's solution for each finished lab that isn't a kit lab | 🔒 read, don't edit |
 | `catchup/` | Catch-up kits for Labs 02, 05, 06 and 08, once published | 🔒 copy from, don't edit |
 | `Directory.Build.*`, `Directory.Packages.props`, `global.json` | Shared build settings | 🔒 |
-| `sq.cs`, `sq.cmd`, `sq.sh`, `.github/workflows/ci.yml` | Tooling | 🔒 |
+| `sq.cs`, `sq.cmd`, `sq.sh`, `tools/sq/`, `.config/dotnet-tools.json`, `.github/workflows/ci.yml` | Tooling | 🔒 |
 
 🔒 files are replaced with the official copies by `sq update`, and again by CI before it grades. Editing them changes nothing that counts. It only makes your local results disagree with the recorded ones.
 
@@ -71,4 +73,4 @@ The full rules are in the [course contract](https://github.com/x86bogdan/fcpl-20
 ## Rules the build enforces
 
 - **Zero nullable warnings.** In this repository, a nullable warning is a build error. `#nullable disable` compiles, but it gets flagged to your instructor.
-- **.NET 10.** `global.json` pins the SDK so every machine in the room builds the same way.
+- **.NET 9 and C# 13, on every machine.** The lab PCs have .NET 9; a .NET 10 SDK builds the same thing. Newer C# features are rejected by the build even on a .NET 10 laptop, so what builds on yours also builds on a lab PC and on GitHub. Details: [.NET 9 or .NET 10](https://github.com/x86bogdan/fcpl-2026/blob/main/DOTNET-9.md).

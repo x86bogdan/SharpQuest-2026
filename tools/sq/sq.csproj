@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    MANAGED FILE: `sq update` and CI replace it with the official copy.
+    Builds the `sq` helper from ../../sq.cs. sq.cmd and sq.sh run this project, which works with a
+    .NET 9 or a .NET 10 SDK. Running sq.cs as a single file would need .NET 10.
+  -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>sq</AssemblyName>
+    <RootNamespace>SharpQuest.Helper</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../sq.cs" />
+  </ItemGroup>
+</Project>

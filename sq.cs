@@ -7,10 +7,9 @@
 //   (from Lab 03 on, sq test also runs your tests against deliberately broken code: see contracts/**/mutation.json)
 //   sq help
 //
-// `sq` is a shortcut for `dotnet run --file sq.cs -- ...` (see sq.cmd and sq.sh).
+// `sq` is a shortcut for `dotnet run --project tools/sq -- ...` (see sq.cmd and sq.sh).
+// It is built as a small project, not run with `dotnet run --file`, because that needs a .NET 10 SDK and the lab PCs have .NET 9.
 // MANAGED FILE: `sq update` and CI replace it with the official copy.
-
-#:property PublishAot=false
 
 using System.Diagnostics;
 using System.IO.Compression;
@@ -32,6 +31,7 @@ return command switch
     "test" => Commands.Test(root, rest),
     "update" => await Commands.Update(root),
     "report" => Commands.ReportOnly(root, rest),
+    "upload" => Commands.Upload(root),
     _ => Commands.Help(),
 };
 
@@ -46,13 +46,134 @@ static class Commands
               sq test 02       only the Lab 02 contract tests
               sq update        get the latest contracts from the course (do this at the start of each lab)
               sq report        show the last results again
+              sq upload        no git? gathers what to upload to GitHub into one folder (see below)
 
             Your tests:        tests/Capstone.Tests      (yours to write)
             Contract tests:    contracts/                (managed — read them, don't edit them)
             Past solutions:    reference/                (managed — read, adapt to your theme, don't copy blindly)
             Catch-up kits:     catchup/                  (managed — borrowed plumbing so a missed lab doesn't stop the next one)
+
+            No git (a lab PC, working from the browser): download your repository as a ZIP, work, then
+            `sq upload` and drag what it gathered onto GitHub's "Add file → Upload files" page.
             """);
         return 0;
+    }
+
+    // ---------------------------------------------------------------- sq upload
+    // For students without git: a lab PC, a browser, the repository downloaded as a ZIP. GitHub's upload page
+    // takes files and folders dragged onto it, but it doesn't read .gitignore, so dragging src/ would also send
+    // bin/, obj/ and database files. This copies exactly what belongs in the repository into .sq/upload/.
+
+    /// <summary>Folders uploaded whole (minus build output). tools/ holds tools/sq/sq.csproj.</summary>
+    static readonly string[] UploadFolders = ["src", "tests", "tools"];
+
+    /// <summary>
+    /// Single files. The build settings and sq are managed (CI replaces them anyway); they go up so that the
+    /// next ZIP you download builds on a lab PC without running the .NET 9 fix again.
+    /// </summary>
+    static readonly string[] UploadFiles =
+    [
+        "README.md", "SharpQuest.slnx", "Directory.Packages.local.props",
+        "global.json", "Directory.Build.props", "Directory.Build.targets", "Directory.Packages.props",
+        "sq.cs", "sq.cmd", "sq.sh",
+    ];
+
+    static readonly HashSet<string> SkipFolders = new(StringComparer.OrdinalIgnoreCase)
+        { "bin", "obj", ".vs", ".idea", ".vscode", "TestResults", "test-results", "node_modules", ".sq" };
+
+    static bool SkipFile(string name) =>
+        name.EndsWith(".db", StringComparison.OrdinalIgnoreCase) || name.EndsWith(".db-shm", StringComparison.OrdinalIgnoreCase)
+        || name.EndsWith(".db-wal", StringComparison.OrdinalIgnoreCase) || name.EndsWith(".user", StringComparison.OrdinalIgnoreCase)
+        || name.EndsWith(".suo", StringComparison.OrdinalIgnoreCase)
+        || name is ".env" or "http-client.private.env.json" or ".DS_Store" or "Thumbs.db" or "desktop.ini";
+
+    /// <summary>GitHub's upload page takes at most 100 files at a time.</summary>
+    const int UploadLimit = 100;
+
+    public static int Upload(string root)
+    {
+        var files = new List<string>();   // relative, '/' separated
+        foreach (var folder in UploadFolders)
+            if (Directory.Exists(Path.Combine(root, folder))) CollectUpload(root, folder, files);
+        foreach (var file in UploadFiles)
+            if (File.Exists(Path.Combine(root, file))) files.Add(file);
+        if (!files.Any(f => f.StartsWith("src/", StringComparison.Ordinal)))
+        {
+            Console.WriteLine("Nothing to upload: there's no src/ folder here. Run sq upload inside your repository folder.");
+            return 1;
+        }
+
+        // Keep each project folder together (src/Capstone.Core, tests/Capstone.Tests, ...) and fill parts of up to 100.
+        var groups = files.GroupBy(f => f.Split('/') is [var a, var b, _, ..] ? a + "/" + b : f).ToList();
+        var parts = new List<List<string>>();
+        foreach (var g in groups)
+        {
+            var last = parts.Count > 0 ? parts[^1] : null;
+            if (last is null || last.Count + g.Count() > UploadLimit) parts.Add(last = []);
+            last.AddRange(g);
+        }
+
+        var target = Path.Combine(root, ".sq", "upload");
+        if (Directory.Exists(target)) Directory.Delete(target, recursive: true);
+        for (var i = 0; i < parts.Count; i++)
+        {
+            var dest = parts.Count == 1 ? target : Path.Combine(target, $"part{i + 1}");
+            foreach (var rel in parts[i])
+            {
+                var to = Path.Combine(dest, rel.Replace('/', Path.DirectorySeparatorChar));
+                Directory.CreateDirectory(Path.GetDirectoryName(to)!);
+                File.Copy(Path.Combine(root, rel.Replace('/', Path.DirectorySeparatorChar)), to);
+            }
+        }
+
+        Console.WriteLine($"Ready to upload: {files.Count} files in {Path.Combine(".sq", "upload")}  (no bin/, obj/ or database files)");
+        Console.WriteLine();
+        Console.WriteLine("  1. In the browser: your repository on GitHub → Add file → Upload files.");
+        Console.WriteLine(parts.Count == 1
+            ? "  2. In the folder that just opened, select everything (Ctrl+A) and drag it onto the GitHub page."
+            : $"  2. GitHub takes 100 files at a time, so it's in {parts.Count} parts. Open part1, select everything (Ctrl+A),\n     drag it onto the GitHub page, commit, then do the same with the next part.");
+        Console.WriteLine("     No folder opened? It's .sq/upload inside your repository folder. Ctrl+H shows hidden folders.");
+        Console.WriteLine("  3. Commit changes. A minute later the Actions tab shows your result.");
+        Console.WriteLine();
+        Console.WriteLine("Deleted or renamed a file? Uploading can't remove the old one: open it on GitHub, ⋯ → Delete file.");
+
+        OpenFolder(parts.Count == 1 ? target : Path.Combine(target, "part1"));
+        return 0;
+    }
+
+    static void CollectUpload(string root, string relDir, List<string> files)
+    {
+        var full = Path.Combine(root, relDir.Replace('/', Path.DirectorySeparatorChar));
+        foreach (var file in Directory.GetFiles(full).Order(StringComparer.Ordinal))
+        {
+            var name = Path.GetFileName(file);
+            if (!SkipFile(name)) files.Add(relDir + "/" + name);
+        }
+        foreach (var dir in Directory.GetDirectories(full).Order(StringComparer.Ordinal))
+        {
+            var name = Path.GetFileName(dir);
+            if (!SkipFolders.Contains(name)) CollectUpload(root, relDir + "/" + name, files);
+        }
+    }
+
+    /// <summary>Opens the folder in the file manager, if there is one. Failing quietly is fine: the path is printed.</summary>
+    static void OpenFolder(string path)
+    {
+        try
+        {
+            string? opener = OperatingSystem.IsWindows() ? "explorer"
+                : OperatingSystem.IsMacOS() ? "open"
+                : Environment.GetEnvironmentVariable("DISPLAY") is not null || Environment.GetEnvironmentVariable("WAYLAND_DISPLAY") is not null ? "xdg-open"
+                : null;
+            if (opener is null) return;
+            var psi = new ProcessStartInfo(opener) { UseShellExecute = false, RedirectStandardOutput = true, RedirectStandardError = true };
+            psi.ArgumentList.Add(path);
+            Process.Start(psi);
+        }
+        catch (Exception)
+        {
+            // no file manager: the printed path is enough
+        }
     }
 
     /// <summary>
@@ -342,7 +463,7 @@ static class Mutation
             sha.AppendData(Encoding.UTF8.GetBytes(name));
             sha.AppendData(File.ReadAllBytes(f));
         }
-        return Convert.ToHexStringLower(sha.GetHashAndReset())[..16];
+        return Convert.ToHexString(sha.GetHashAndReset()).ToLowerInvariant()[..16];
     }
 
     private static void PrintSummary(string lab, JsonNode r, bool cached)
@@ -553,6 +674,9 @@ static class Repo
         "sq.cmd",
         "sq.sh",
         ".github/workflows/ci.yml",
+        "tools/sq/sq.csproj",
+        // The pinned dotnet ef and ilspycmd versions follow the course's .NET version (9 since 2026-10-06).
+        ".config/dotnet-tools.json",
     ];
 
     public static string FindRoot()
@@ -621,7 +745,7 @@ static class Repo
             sha.AppendData(Encoding.UTF8.GetBytes(relative + "\n"));
             sha.AppendData(Encoding.UTF8.GetBytes(File.ReadAllText(f).Replace("\r\n", "\n")));
         }
-        return any ? Convert.ToHexStringLower(sha.GetHashAndReset())[..16] : "";
+        return any ? Convert.ToHexString(sha.GetHashAndReset()).ToLowerInvariant()[..16] : "";
     }
 
     public static void Replace(string from, string to)
