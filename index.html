@@ -1,0 +1,2752 @@
+<!doctype html>
+<!--
+  SharpQuest scoreboard template.
+  collect.cs replaces the SCOREBOARD_DATA placeholder below with the avatar-only JSON and writes out/scoreboard.html.
+  Everything is inline, so the page works from GitHub Pages or from a file.
+-->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>FCPL Lab Scoreboard</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #f9f9f7;
+      --surface: #fcfcfb;
+      --surface-2: #f0efec;
+      --ink: #0b0b0b;
+      --ink-2: #52514e;
+      --muted: #6f6d68;
+      --hairline: #e1e0d9;
+      --axis: #c3c2b7;
+      --ring: rgba(11, 11, 11, 0.10);
+      --accent: #2a78d6;
+      --track: #cde2fb;
+      --focus: #2a78d6;
+      --b1: #86b6ef;
+      --b2: #5598e7;
+      --b3: #2a78d6;
+      --b4: #1c5cab;
+      --b5: #104281;
+      --t1: #0b0b0b;
+      --t2: #0b0b0b;
+      --t3: #ffffff;
+      --t4: #ffffff;
+      --t5: #ffffff;
+      --mine: #fff4d6;
+      --warn: #8a4b00;
+      --warn-bg: #fff6e6;
+      --warn-line: #f0d6a8;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:where(:not([data-theme="light"])) {
+        color-scheme: dark;
+        --page: #0d0d0d;
+        --surface: #1a1a19;
+        --surface-2: #232321;
+        --ink: #ffffff;
+        --ink-2: #c3c2b7;
+        --muted: #9c9a93;
+        --hairline: #2c2c2a;
+        --axis: #383835;
+        --ring: rgba(255, 255, 255, 0.10);
+        --accent: #3987e5;
+        --track: #173152;
+        --focus: #6da7ec;
+        --b1: #184f95;
+        --b2: #256abf;
+        --b3: #3987e5;
+        --b4: #6da7ec;
+        --b5: #9ec5f4;
+        --t1: #ffffff;
+        --t2: #ffffff;
+        --t3: #ffffff;
+        --t4: #0b0b0b;
+        --t5: #0b0b0b;
+        --mine: #3a3217;
+        --warn: #ffc56b;
+        --warn-bg: #2a2214;
+        --warn-line: #4a3a1c;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --page: #0d0d0d;
+      --surface: #1a1a19;
+      --surface-2: #232321;
+      --ink: #ffffff;
+      --ink-2: #c3c2b7;
+      --muted: #9c9a93;
+      --hairline: #2c2c2a;
+      --axis: #383835;
+      --ring: rgba(255, 255, 255, 0.10);
+      --accent: #3987e5;
+      --track: #173152;
+      --focus: #6da7ec;
+      --b1: #184f95;
+      --b2: #256abf;
+      --b3: #3987e5;
+      --b4: #6da7ec;
+      --b5: #9ec5f4;
+      --t1: #ffffff;
+      --t2: #ffffff;
+      --t3: #ffffff;
+      --t4: #0b0b0b;
+      --t5: #0b0b0b;
+      --mine: #3a3217;
+      --warn: #ffc56b;
+      --warn-bg: #2a2214;
+      --warn-line: #4a3a1c;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+    }
+
+    header h1 {
+      font-size: 32px;
+      line-height: 1.2;
+      margin: 0;
+      font-weight: 650;
+    }
+
+    header p {
+      margin: 4px 0 0;
+      color: var(--ink-2);
+    }
+
+    .tiles {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .tile {
+      background: var(--surface);
+      border: 1px solid var(--ring);
+      border-radius: 12px;
+      padding: 16px 20px;
+    }
+
+    .tile .label {
+      color: var(--ink-2);
+      font-size: 14px;
+    }
+
+    .tile .value {
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .tile .sub {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin: 0 0 12px;
+    }
+
+    .controls input[type="search"] {
+      font: inherit;
+      padding: 8px 12px;
+      min-width: 240px;
+      flex: 0 1 320px;
+      background: var(--surface);
+      color: var(--ink);
+      border: 1px solid var(--axis);
+      border-radius: 8px;
+    }
+
+    .controls label {
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+      color: var(--ink-2);
+      cursor: pointer;
+    }
+
+    .controls select {
+      font: inherit;
+      padding: 7px 10px;
+      background: var(--surface);
+      color: var(--ink);
+      border: 1px solid var(--axis);
+      border-radius: 8px;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      align-items: center;
+      color: var(--ink-2);
+      font-size: 13px;
+      margin: 0 0 16px;
+    }
+
+    .legend .scale {
+      display: inline-flex;
+      gap: 2px;
+      align-items: center;
+    }
+
+    .legend .scale span {
+      width: 22px;
+      height: 14px;
+      border-radius: 3px;
+    }
+
+    .legend .key {
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .legend .mini {
+      width: 18px;
+      height: 18px;
+    }
+
+    .board {
+      background: var(--surface);
+      border: 1px solid var(--ring);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .row,
+    .head {
+      display: grid;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 16px;
+      grid-template-columns: 44px minmax(150px, 1.1fr) 92px minmax(160px, 1.4fr) auto;
+    }
+
+    .head {
+      color: var(--muted);
+      font-size: 12px;
+      border-bottom: 1px solid var(--hairline);
+      padding-top: 12px;
+      padding-bottom: 8px;
+    }
+
+    .row {
+      border-top: 1px solid var(--hairline);
+    }
+
+    .head+.row {
+      border-top: 0;
+    }
+
+    .row.match {
+      background: var(--mine);
+    }
+
+    .row[hidden] {
+      display: none;
+    }
+
+    .rank {
+      font-variant-numeric: tabular-nums;
+      color: var(--ink-2);
+      text-align: right;
+      font-weight: 600;
+    }
+
+    .who {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .badge {
+      flex: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      line-height: 1;
+      box-shadow: inset 0 0 0 2px var(--c);
+      background: var(--cbg);
+    }
+
+    .who .text {
+      min-width: 0;
+    }
+
+    .who .name {
+      display: block;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .who .note {
+      display: block;
+      font-size: 12px;
+      color: var(--ink-2);
+    }
+
+    .pts {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .pts b {
+      font-size: 20px;
+    }
+
+    .pts small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .bar {
+      position: relative;
+      height: 28px;
+    }
+
+    .bar .track {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 8px;
+      height: 12px;
+      background: var(--track);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .bar .fill {
+      position: absolute;
+      left: 0;
+      top: 8px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .bar .mark {
+      position: absolute;
+      top: 2px;
+      bottom: 2px;
+      width: 1px;
+      background: var(--ink-2);
+      opacity: .55;
+    }
+
+    .head .scale-labels {
+      position: relative;
+      height: 16px;
+    }
+
+    .head .scale-labels span {
+      position: absolute;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    .head .scale-labels span:first-child {
+      transform: none;
+    }
+
+    .cells {
+      display: grid;
+      grid-template-columns: repeat(11, 32px);
+      gap: 2px;
+    }
+
+    .cells.labels span {
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .cell {
+      position: relative;
+      width: 32px;
+      height: 28px;
+      border-radius: 4px;
+      display: grid;
+      place-items: center;
+      font-size: 10.5px;
+      letter-spacing: -0.2px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      cursor: default;
+    }
+
+    .cell.future {
+      background: var(--surface-2);
+    }
+
+    .cell.open,
+    .cell.started,
+    .cell.green,
+    .cell.held,
+    .cell.zero {
+      box-shadow: inset 0 0 0 1px var(--axis);
+    }
+
+    .cell.held::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--muted);
+    }
+
+    .cell.started::after {
+      content: "";
+      width: 6px;
+      height: 2px;
+      border-radius: 1px;
+      background: var(--muted);
+    }
+
+    .cell.green::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 2px var(--accent);
+    }
+
+    .cell .v {
+      display: none;
+    }
+
+    .show-numbers .cell .v {
+      display: inline;
+    }
+
+    .show-numbers .cell.green::after,
+    .show-numbers .cell.started::after {
+      display: none;
+    }
+
+    /* Recovered: a corner notch (shape, not colour) plus an R while numbers are hidden. */
+    .cell.rec::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-top: 9px solid var(--ink);
+      border-left: 9px solid transparent;
+      border-top-right-radius: 4px;
+    }
+
+    /* Late: a notch in the opposite corner, so the two never look alike. */
+    .cell.lt::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-bottom: 9px solid var(--ink);
+      border-right: 9px solid transparent;
+      border-bottom-left-radius: 4px;
+    }
+
+    .cell .r {
+      font-size: 11px;
+    }
+
+    .show-numbers .cell .r {
+      display: none;
+    }
+
+    .cell.l1 {
+      background: var(--b1);
+      color: var(--t1);
+    }
+
+    .cell.l2 {
+      background: var(--b2);
+      color: var(--t2);
+    }
+
+    .cell.l3 {
+      background: var(--b3);
+      color: var(--t3);
+    }
+
+    .cell.l4 {
+      background: var(--b4);
+      color: var(--t4);
+    }
+
+    .cell.l5 {
+      background: var(--b5);
+      color: var(--t5);
+    }
+
+    .cell:hover,
+    .cell:focus-visible {
+      filter: brightness(1.08);
+      box-shadow: inset 0 0 0 2px var(--ink);
+    }
+
+    .tip {
+      position: fixed;
+      z-index: 10;
+      pointer-events: none;
+      background: var(--surface);
+      color: var(--ink);
+      border: 1px solid var(--ring);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 13px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .18);
+      max-width: 240px;
+    }
+
+    .tip b {
+      font-size: 16px;
+      display: block;
+    }
+
+    .tip span {
+      color: var(--ink-2);
+    }
+
+    .who .note.issue {
+      color: var(--warn);
+      font-weight: 600;
+    }
+
+    .star {
+      color: var(--warn);
+      font-weight: 700;
+      margin-left: 1px;
+    }
+
+    .fixes {
+      margin: 16px 0 0;
+      padding: 14px 18px;
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-line);
+      border-radius: 12px;
+      font-size: 14px;
+    }
+
+    .fixes h2,
+    .reserved h2 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      font-weight: 650;
+    }
+
+    .fixes p {
+      margin: 0 0 8px;
+      color: var(--ink-2);
+    }
+
+    .fixes dl {
+      margin: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .fixes dt {
+      font-weight: 600;
+      color: var(--warn);
+    }
+
+    .fixes dd {
+      margin: 0;
+      color: var(--ink);
+    }
+
+    .fixes dd .who-has {
+      display: block;
+      color: var(--ink-2);
+      font-size: 13px;
+    }
+
+    .reserved {
+      margin-top: 16px;
+      background: var(--surface);
+      border: 1px solid var(--ring);
+      border-radius: 12px;
+      padding: 14px 18px;
+    }
+
+    .reserved p {
+      margin: 0 0 12px;
+      color: var(--ink-2);
+      font-size: 14px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 12px 4px 4px;
+      border-radius: 99px;
+      background: var(--surface-2);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .chip .badge {
+      width: 28px;
+      height: 28px;
+      font-size: 16px;
+    }
+
+    .chip.match {
+      background: var(--mine);
+      box-shadow: inset 0 0 0 1px var(--axis);
+    }
+
+    .empty {
+      padding: 32px;
+      text-align: center;
+      color: var(--ink-2);
+    }
+
+    footer {
+      margin-top: 24px;
+      color: var(--ink-2);
+      font-size: 14px;
+    }
+
+    footer ul {
+      padding-left: 20px;
+      margin: 8px 0;
+    }
+
+    @media (max-width: 860px) {
+      .tiles {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .tile {
+        padding: 10px 12px;
+      }
+
+      .tile .value {
+        font-size: 24px;
+      }
+
+      .tile .sub {
+        display: none;
+      }
+
+      .head {
+        display: none;
+      }
+
+      .row {
+        grid-template-columns: 36px minmax(0, 1fr) auto;
+        gap: 8px 12px;
+      }
+
+      .row .bar {
+        grid-column: 1 / -1;
+      }
+
+      .row .cells {
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(11, minmax(0, 1fr));
+      }
+
+      .cell {
+        width: auto;
+        font-size: 9px;
+        letter-spacing: -0.3px;
+      }
+
+      .controls input[type="search"] {
+        flex: 1 1 100%;
+        min-width: 0;
+      }
+    }
+
+    @media (forced-colors: active) {
+
+      .cell,
+      .bar .fill,
+      .bar .track {
+        forced-color-adjust: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <h1 id="title">Scoreboard</h1>
+      <p id="subtitle"></p>
+    </header>
+
+    <section class="tiles" aria-label="Summary">
+      <div class="tile">
+        <div class="label">On the board</div>
+        <div class="value" id="t-count">0</div>
+        <div class="sub">avatars</div>
+      </div>
+      <div class="tile">
+        <div class="label">Labs verified</div>
+        <div class="value" id="t-labs">0</div>
+        <div class="sub" id="t-labs-sub"></div>
+      </div>
+      <div class="tile">
+        <div class="label">Repository issues</div>
+        <div class="value" id="t-issues">0</div>
+        <div class="sub">avatars marked *</div>
+      </div>
+    </section>
+
+    <div class="controls" role="search">
+      <input type="search" id="find" placeholder="Find your avatar, e.g. Blue Fox" aria-label="Find your avatar">
+      <label><input type="checkbox" id="numbers"> Show points in cells</label>
+      <label>Sort <select id="sort" aria-label="Sort order">
+          <option value="rank">by points</option>
+          <option value="name">by avatar</option>
+        </select></label>
+    </div>
+
+    <div class="legend" aria-label="Legend">
+      <span class="key">Points per lab
+        <span class="scale" aria-hidden="true">
+          <span class="cell l1"></span><span class="cell l2"></span><span class="cell l3"></span><span
+            class="cell l4"></span><span class="cell l5"></span>
+        </span>
+        1–3 · 4–6 · 7–8 · 9–10 · 11–12
+      </span>
+      <span class="key"><span class="cell mini l2 lt" aria-hidden="true"></span> finished after the lab (late)</span>
+      <span class="key"><span class="cell mini l2 rec" aria-hidden="true"></span> recovered (max 8)</span>
+      <span class="key"><span class="cell mini green" aria-hidden="true"></span> green on CI, not verified yet</span>
+      <span class="key"><span class="cell mini held" aria-hidden="true"></span> verified, shown after your
+        feedback</span>
+      <span class="key"><span class="cell mini started" aria-hidden="true"></span> started</span>
+      <span class="key"><span class="cell mini open" aria-hidden="true"></span> not started</span>
+      <span class="key"><span class="cell mini future" aria-hidden="true"></span> not published yet</span>
+    </div>
+
+    <div class="board" id="board" role="list" aria-label="Scoreboard"></div>
+
+    <section class="fixes" id="fixes" aria-labelledby="fixes-title" hidden>
+      <h2 id="fixes-title"><span class="star">*</span> Scores marked with a star aren't correct yet</h2>
+      <p>Something in your repository has to be fixed first. Your real score appears in the next update after the fix.</p>
+      <dl id="fixes-list"></dl>
+    </section>
+
+    <section class="reserved" id="reserved" aria-labelledby="reserved-title" hidden>
+      <h2 id="reserved-title">Reserved, not shown</h2>
+      <p>These avatars belong to students who chose not to appear on the board. They're still graded, and the avatar stays
+        theirs. Changed your mind? Tell your instructor, and you'll be on the board from the next update.</p>
+      <div class="chips" id="reserved-list" role="list"></div>
+    </section>
+
+    <footer>
+      <ul>
+        <li><b>90 points is a 10.</b> Each lab is worth up to 10, plus 2 for the stretch task, when
+          it's done during the lab. Work finished after the lab, and recovered labs, are worth less.</li>
+        <li id="gate-note" hidden>Your total updates when you submit the latest feedback form. Until then it shows your
+          points as of your last submission.</li>
+        <li>Stuck on syntax? The <a href="https://x86bogdan.github.io/fcpl-2026/cheatsheet/">C# phrasebook</a> has every lab's C# next to Java and C++.</li>
+        <li>Avatars only. Nobody else knows which one is yours unless you tell them. Ask your instructor if you'd rather
+          not appear here: your avatar then shows under <i>Reserved, not shown</i>.</li>
+      </ul>
+    </footer>
+  </div>
+  <div class="tip" id="tip" hidden></div>
+
+  <script id="data" type="application/json">{
+  "title": "FCPL lab leaderboard",
+  "cohort": "2026",
+  "updated": "2026-10-28 08:49",
+  "labs": [
+    {
+      "lab": "02",
+      "published": true
+    },
+    {
+      "lab": "03",
+      "published": true
+    },
+    {
+      "lab": "04",
+      "published": true
+    },
+    {
+      "lab": "05",
+      "published": true
+    },
+    {
+      "lab": "06",
+      "published": true
+    },
+    {
+      "lab": "07",
+      "published": false
+    },
+    {
+      "lab": "08",
+      "published": false
+    },
+    {
+      "lab": "09",
+      "published": false
+    },
+    {
+      "lab": "10",
+      "published": false
+    },
+    {
+      "lab": "11",
+      "published": false
+    },
+    {
+      "lab": "12",
+      "published": false
+    }
+  ],
+  "feedbackGate": false,
+  "tenAt": 90,
+  "students": [
+    {
+      "animal": "Fox",
+      "emoji": "\uD83E\uDD8A",
+      "colour": "Blue",
+      "hex": "#1E5BC6",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Hedgehog",
+      "emoji": "\uD83E\uDD94",
+      "colour": "Gold",
+      "hex": "#D9B310",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-workflow",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Stag",
+      "emoji": "\uD83E\uDD8C",
+      "colour": "Gold",
+      "hex": "#D9B310",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-access",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Bear",
+      "emoji": "\uD83D\uDC3B",
+      "colour": "Green",
+      "hex": "#2E7D32",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-repo",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Beetle",
+      "emoji": "\uD83E\uDEB2",
+      "colour": "Green",
+      "hex": "#2E7D32",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-access",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Falcon",
+      "emoji": "\uD83E\uDD85",
+      "colour": "Green",
+      "hex": "#2E7D32",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Owl",
+      "emoji": "\uD83E\uDD89",
+      "colour": "Green",
+      "hex": "#2E7D32",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-repo",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Hare",
+      "emoji": "\uD83D\uDC07",
+      "colour": "Grey",
+      "hex": "#78808A",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Fox",
+      "emoji": "\uD83E\uDD8A",
+      "colour": "Lime",
+      "hex": "#7CB342",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-access",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Toad",
+      "emoji": "\uD83D\uDC38",
+      "colour": "Lime",
+      "hex": "#7CB342",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Turtle",
+      "emoji": "\uD83D\uDC22",
+      "colour": "Lime",
+      "hex": "#7CB342",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-access",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Penguin",
+      "emoji": "\uD83D\uDC27",
+      "colour": "Navy",
+      "hex": "#283C8C",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Fox",
+      "emoji": "\uD83E\uDD8A",
+      "colour": "Pink",
+      "hex": "#E0569B",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Otter",
+      "emoji": "\uD83E\uDDA6",
+      "colour": "Pink",
+      "hex": "#E0569B",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Penguin",
+      "emoji": "\uD83D\uDC27",
+      "colour": "Pink",
+      "hex": "#E0569B",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Bear",
+      "emoji": "\uD83D\uDC3B",
+      "colour": "Purple",
+      "hex": "#7B3FC4",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Falcon",
+      "emoji": "\uD83E\uDD85",
+      "colour": "Purple",
+      "hex": "#7B3FC4",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-access",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Fox",
+      "emoji": "\uD83E\uDD8A",
+      "colour": "Purple",
+      "hex": "#7B3FC4",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Owl",
+      "emoji": "\uD83E\uDD89",
+      "colour": "Purple",
+      "hex": "#7B3FC4",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-access",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Penguin",
+      "emoji": "\uD83D\uDC27",
+      "colour": "Purple",
+      "hex": "#7B3FC4",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Bat",
+      "emoji": "\uD83E\uDD87",
+      "colour": "Red",
+      "hex": "#D32F2F",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-workflow",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Owl",
+      "emoji": "\uD83E\uDD89",
+      "colour": "Red",
+      "hex": "#D32F2F",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-access",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Turtle",
+      "emoji": "\uD83D\uDC22",
+      "colour": "Sky",
+      "hex": "#29A3D6",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-access",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    }
+  ],
+  "reserved": [
+    {
+      "animal": "Hare",
+      "emoji": "\uD83D\uDC07",
+      "colour": "Gold",
+      "hex": "#D9B310"
+    },
+    {
+      "animal": "Bat",
+      "emoji": "\uD83E\uDD87",
+      "colour": "Grey",
+      "hex": "#78808A"
+    },
+    {
+      "animal": "Boar",
+      "emoji": "\uD83D\uDC17",
+      "colour": "Grey",
+      "hex": "#78808A"
+    },
+    {
+      "animal": "Gecko",
+      "emoji": "\uD83E\uDD8E",
+      "colour": "Lime",
+      "hex": "#7CB342"
+    },
+    {
+      "animal": "Fox",
+      "emoji": "\uD83E\uDD8A",
+      "colour": "Orange",
+      "hex": "#EF6C00"
+    },
+    {
+      "animal": "Owl",
+      "emoji": "\uD83E\uDD89",
+      "colour": "Orange",
+      "hex": "#EF6C00"
+    },
+    {
+      "animal": "Turtle",
+      "emoji": "\uD83D\uDC22",
+      "colour": "Orange",
+      "hex": "#EF6C00"
+    },
+    {
+      "animal": "Bear",
+      "emoji": "\uD83D\uDC3B",
+      "colour": "Pink",
+      "hex": "#E0569B"
+    },
+    {
+      "animal": "Beetle",
+      "emoji": "\uD83E\uDEB2",
+      "colour": "Pink",
+      "hex": "#E0569B"
+    },
+    {
+      "animal": "Bat",
+      "emoji": "\uD83E\uDD87",
+      "colour": "Purple",
+      "hex": "#7B3FC4"
+    },
+    {
+      "animal": "Fox",
+      "emoji": "\uD83E\uDD8A",
+      "colour": "Red",
+      "hex": "#D32F2F"
+    },
+    {
+      "animal": "Otter",
+      "emoji": "\uD83E\uDDA6",
+      "colour": "Sky",
+      "hex": "#29A3D6"
+    }
+  ]
+}</script>
+  <script>
+    (() => {
+      "use strict";
+      const data = JSON.parse(document.getElementById("data").textContent) ?? {
+        title: "Scoreboard (template preview)", cohort: "", updated: "", labs: [], students: [], reserved: [], tenAt: 90
+      };
+      const MAX = 110;
+      const $ = (id) => document.getElementById(id);
+      const el = (tag, cls, text) => {
+        const e = document.createElement(tag);
+        if (cls) e.className = cls;
+        if (text !== undefined) e.textContent = text;
+        return e;
+      };
+      const fmt = (n) => (Math.round(n * 10) / 10).toLocaleString("en-GB");
+      const bucket = (p) => p >= 11 ? 5 : p >= 9 ? 4 : p >= 7 ? 3 : p >= 4 ? 2 : p > 0 ? 1 : 0;
+      const statusText = {
+        verified: "verified, done during the lab", late: "verified, finished after the lab", recovered: "recovered", held: "verified; points appear after your feedback", green: "green on CI, waiting for verification",
+        started: "started, not green yet", open: "not started", future: "not published yet"
+      };
+      // Repository problems: generic on purpose, the board never names a repository. Short label + what the student does.
+      const issueText = {
+        "no-access": ["Your instructor can't open your repository",
+          "In your repository: Settings → Collaborators → Add people → x86bogdan. An invitation expires after 7 days: if yours is older, remove it and invite again. Also check that the repository link you registered is the right one."],
+        "no-workflow": ["CI isn't set up in your repository",
+          "The repository opens, but it has no CI workflow (.github/workflows/ci.yml), or Actions are switched off. Make your repository from the course template, or upload the template's .github folder; then Settings → Actions → General → Allow all actions."],
+        "no-runs": ["CI hasn't run yet",
+          "Push (or upload) your work once, then check that a run appears in your repository's Actions tab."],
+        "ci-modified": ["Your CI workflow file was changed",
+          "Your latest run used a ci.yml that isn't the course one, so its results can't count. Put back the original .github/workflows/ci.yml from the template and push again."],
+        "no-repo": ["Your registration has no repository link",
+          "Your avatar is reserved, but there's no valid link to your repository. Send your instructor the full link (https://github.com/you/your-repo)."],
+      };
+
+      document.title = data.title + (data.cohort ? " · " + data.cohort : "");
+      $("title").textContent = data.title;
+      $("subtitle").textContent = [data.cohort && "FCPL lab " + data.cohort, data.updated && "updated " + data.updated]
+        .filter(Boolean).join(" · ");
+      $("gate-note").hidden = !data.feedbackGate;
+
+      // Summary tiles
+      const students = data.students ?? [];
+      const scored = (c) => c.status === "verified" || c.status === "late" || c.status === "recovered";
+      const verified = students.reduce((n, s) => n + s.labs.filter(scored).length, 0);
+      const published = (data.labs ?? []).filter(l => l.published).length;
+      $("t-count").textContent = students.length;
+      $("t-labs").textContent = verified;
+      $("t-labs-sub").textContent = published + (published === 1 ? " lab published so far" : " labs published so far");
+      const flagged = students.filter(s => s.issue);
+      $("t-issues").textContent = flagged.length;
+
+      // Header row
+      const board = $("board");
+      const head = el("div", "head");
+      head.setAttribute("aria-hidden", "true");
+      head.append(el("span", "rank", "#"), el("span", null, "Avatar"), el("span", "pts", "Points"));
+      const scale = el("div", "scale-labels");
+      const tick = (v, label) => { const s = el("span", null, label); s.style.left = (v / MAX * 100) + "%"; return s; };
+      scale.append(tick(0, "0"), tick(data.tenAt, data.tenAt + " = 10"));
+      head.append(scale);
+      const labHead = el("div", "cells labels");
+      for (const l of data.labs ?? []) labHead.append(el("span", null, "S" + Number(l.lab)));
+      head.append(labHead);
+      board.append(head);
+
+      if (students.length === 0) {
+        board.append(el("div", "empty", "Nobody on the board yet. It fills in after the first verified lab."));
+      }
+
+      // Rows
+      const rows = students.map((s) => {
+        const avatar = s.colour + " " + s.animal;
+        const row = el("div", "row");
+        row.setAttribute("role", "listitem");
+        row.dataset.name = avatar.toLowerCase();
+        row.dataset.rank = s.rank;
+        const issue = s.issue ? issueText[s.issue] ?? [s.issue, ""] : null;
+        row.setAttribute("aria-label", `Rank ${s.rank}, ${avatar}, ${fmt(s.points)} points` +
+          (issue ? `, not correct yet: ${issue[0]}` : ""));
+
+        row.append(el("span", "rank", String(s.rank)));
+
+        const who = el("div", "who");
+        const badge = el("span", "badge", s.emoji);
+        badge.setAttribute("aria-hidden", "true");
+        badge.style.setProperty("--c", s.hex);
+        badge.style.setProperty("--cbg", s.hex + "29");
+        const text = el("div", "text");
+        text.append(el("span", "name", avatar));
+        if (s.feedbackDue) text.append(el("span", "note", "✎ feedback due: total paused"));
+        if (s.extra > 0) text.append(el("span", "note", "+" + fmt(s.extra) + " extra points in the total"));
+        if (issue) text.append(el("span", "note issue", "* " + issue[0]));
+        who.append(badge, text);
+        row.append(who);
+
+        const pts = el("div", "pts");
+        const total = el("b", null, fmt(s.points));
+        if (issue) {
+          const star = el("span", "star", "*");
+          star.title = "Not correct yet: " + issue[0];
+          total.append(star);
+        }
+        pts.append(total, el("small", null, "≈ " + s.grade.toFixed(1)));
+        row.append(pts);
+
+        const bar = el("div", "bar");
+        bar.setAttribute("role", "img");
+        bar.setAttribute("aria-label", `${fmt(s.points)} of ${data.tenAt} points needed for a 10`);
+        const fill = el("span", "fill");
+        fill.style.width = Math.min(100, s.points / MAX * 100) + "%";
+        const m2 = el("span", "mark"); m2.style.left = (data.tenAt / MAX * 100) + "%";
+        bar.append(el("span", "track"), fill, m2);
+        row.append(bar);
+
+        const cells = el("div", "cells");
+        for (const c of s.labs) {
+          const cell = el("span", "cell");
+          const labName = "Session " + Number(c.lab);
+          if (scored(c)) {
+            const b = bucket(c.points ?? 0);
+            cell.classList.add(b === 0 ? "zero" : "l" + b);
+            cell.append(el("span", "v", fmt(c.points ?? 0)));
+            if (c.status === "recovered") { cell.classList.add("rec"); cell.append(el("span", "r", "R")); }
+            if (c.status === "late") { cell.classList.add("lt"); cell.append(el("span", "r", "L")); }
+          } else {
+            cell.classList.add(c.status);
+          }
+          const detail = c.points != null ? `${fmt(c.points)} points, ${statusText[c.status]}` : statusText[c.status];
+          cell.tabIndex = 0;
+          cell.setAttribute("aria-label", `${labName}: ${detail}`);
+          cell.dataset.tipTitle = c.points != null ? fmt(c.points) + " pts" : labName;
+          cell.dataset.tipBody = c.points != null ? `${labName} · ${statusText[c.status]}` : statusText[c.status];
+          cells.append(cell);
+        }
+        row.append(cells);
+        return row;
+      });
+      board.append(...rows);
+
+      // What each * means, with the avatars it applies to (only the kinds that occur)
+      const fixList = $("fixes-list");
+      for (const [code, [label, fix]] of Object.entries(issueText)) {
+        const who = flagged.filter(s => s.issue === code).map(s => s.colour + " " + s.animal).sort();
+        if (who.length === 0) continue;
+        const dd = el("dd", null, fix);
+        dd.append(el("span", "who-has", who.join(" · ")));
+        fixList.append(el("dt", null, "* " + label), dd);
+      }
+      const unknown = flagged.filter(s => !issueText[s.issue]);
+      if (unknown.length) {
+        const dd = el("dd", null, "Ask your instructor what needs fixing.");
+        dd.append(el("span", "who-has", unknown.map(s => s.colour + " " + s.animal).sort().join(" · ")));
+        fixList.append(el("dt", null, "* Something else"), dd);
+      }
+      $("fixes").hidden = flagged.length === 0;
+
+      // Reserved avatars: claimed, off the board
+      const reserved = data.reserved ?? [];
+      const chips = reserved.map((r) => {
+        const name = r.colour + " " + r.animal;
+        const chip = el("span", "chip");
+        chip.setAttribute("role", "listitem");
+        chip.dataset.name = name.toLowerCase();
+        const b = el("span", "badge", r.emoji);
+        b.setAttribute("aria-hidden", "true");
+        b.style.setProperty("--c", r.hex);
+        b.style.setProperty("--cbg", r.hex + "29");
+        chip.append(b, document.createTextNode(name));
+        return chip;
+      });
+      $("reserved-list").append(...chips);
+      $("reserved").hidden = chips.length === 0;
+
+      // Tooltip (hover and keyboard focus)
+      const tip = $("tip");
+      const show = (cell, x, y) => {
+        tip.replaceChildren(el("b", null, cell.dataset.tipTitle), el("span", null, cell.dataset.tipBody));
+        tip.hidden = false;
+        const r = tip.getBoundingClientRect();
+        tip.style.left = Math.min(window.innerWidth - r.width - 8, x + 12) + "px";
+        tip.style.top = Math.max(8, y - r.height - 12) + "px";
+      };
+      board.addEventListener("pointermove", (e) => {
+        const cell = e.target.closest(".cell");
+        if (cell && cell.dataset.tipTitle) show(cell, e.clientX, e.clientY); else tip.hidden = true;
+      });
+      board.addEventListener("pointerleave", () => { tip.hidden = true; });
+      board.addEventListener("focusin", (e) => {
+        const cell = e.target.closest(".cell");
+        if (!cell) return;
+        const r = cell.getBoundingClientRect();
+        show(cell, r.left, r.top);
+      });
+      board.addEventListener("focusout", () => { tip.hidden = true; });
+
+      // Controls
+      const settings = (() => { try { return JSON.parse(localStorage.getItem("sq-board") || "{}"); } catch { return {}; } })();
+      const save = () => { try { localStorage.setItem("sq-board", JSON.stringify(settings)); } catch { /* storage unavailable */ } };
+
+      const numbers = $("numbers");
+      numbers.checked = !!settings.numbers;
+      const applyNumbers = () => board.classList.toggle("show-numbers", numbers.checked);
+      numbers.addEventListener("change", () => { settings.numbers = numbers.checked; save(); applyNumbers(); });
+      applyNumbers();
+
+      const find = $("find");
+      find.value = settings.find || "";
+      const applyFind = () => {
+        const q = find.value.trim().toLowerCase();
+        for (const row of rows) {
+          const hit = q.length > 0 && row.dataset.name.includes(q);
+          row.classList.toggle("match", hit);
+          row.hidden = q.length > 0 && !hit;
+        }
+        for (const chip of chips) chip.classList.toggle("match", q.length > 0 && chip.dataset.name.includes(q));
+      };
+      find.addEventListener("input", () => { settings.find = find.value; save(); applyFind(); });
+      applyFind();
+
+      const sort = $("sort");
+      sort.value = settings.sort || "rank";
+      const applySort = () => {
+        const sorted = [...rows].sort(sort.value === "name"
+          ? (a, b) => a.dataset.name.localeCompare(b.dataset.name)
+          : (a, b) => Number(a.dataset.rank) - Number(b.dataset.rank));
+        board.append(...sorted);
+      };
+      sort.addEventListener("change", () => { settings.sort = sort.value; save(); applySort(); });
+      applySort();
+    })();
+  </script>
+</body>
+
+</html>

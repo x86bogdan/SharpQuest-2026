@@ -1,0 +1,1716 @@
+{
+  "title": "FCPL lab leaderboard",
+  "cohort": "2026",
+  "updated": "2026-10-28 08:49",
+  "labs": [
+    {
+      "lab": "02",
+      "published": true
+    },
+    {
+      "lab": "03",
+      "published": true
+    },
+    {
+      "lab": "04",
+      "published": true
+    },
+    {
+      "lab": "05",
+      "published": true
+    },
+    {
+      "lab": "06",
+      "published": true
+    },
+    {
+      "lab": "07",
+      "published": false
+    },
+    {
+      "lab": "08",
+      "published": false
+    },
+    {
+      "lab": "09",
+      "published": false
+    },
+    {
+      "lab": "10",
+      "published": false
+    },
+    {
+      "lab": "11",
+      "published": false
+    },
+    {
+      "lab": "12",
+      "published": false
+    }
+  ],
+  "feedbackGate": false,
+  "tenAt": 90,
+  "students": [
+    {
+      "animal": "Fox",
+      "emoji": "\uD83E\uDD8A",
+      "colour": "Blue",
+      "hex": "#1E5BC6",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Hedgehog",
+      "emoji": "\uD83E\uDD94",
+      "colour": "Gold",
+      "hex": "#D9B310",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-workflow",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Stag",
+      "emoji": "\uD83E\uDD8C",
+      "colour": "Gold",
+      "hex": "#D9B310",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-access",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Bear",
+      "emoji": "\uD83D\uDC3B",
+      "colour": "Green",
+      "hex": "#2E7D32",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-repo",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Beetle",
+      "emoji": "\uD83E\uDEB2",
+      "colour": "Green",
+      "hex": "#2E7D32",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-access",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Falcon",
+      "emoji": "\uD83E\uDD85",
+      "colour": "Green",
+      "hex": "#2E7D32",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Owl",
+      "emoji": "\uD83E\uDD89",
+      "colour": "Green",
+      "hex": "#2E7D32",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-repo",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Hare",
+      "emoji": "\uD83D\uDC07",
+      "colour": "Grey",
+      "hex": "#78808A",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Fox",
+      "emoji": "\uD83E\uDD8A",
+      "colour": "Lime",
+      "hex": "#7CB342",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-access",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Toad",
+      "emoji": "\uD83D\uDC38",
+      "colour": "Lime",
+      "hex": "#7CB342",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Turtle",
+      "emoji": "\uD83D\uDC22",
+      "colour": "Lime",
+      "hex": "#7CB342",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-access",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Penguin",
+      "emoji": "\uD83D\uDC27",
+      "colour": "Navy",
+      "hex": "#283C8C",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Fox",
+      "emoji": "\uD83E\uDD8A",
+      "colour": "Pink",
+      "hex": "#E0569B",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Otter",
+      "emoji": "\uD83E\uDDA6",
+      "colour": "Pink",
+      "hex": "#E0569B",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Penguin",
+      "emoji": "\uD83D\uDC27",
+      "colour": "Pink",
+      "hex": "#E0569B",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Bear",
+      "emoji": "\uD83D\uDC3B",
+      "colour": "Purple",
+      "hex": "#7B3FC4",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Falcon",
+      "emoji": "\uD83E\uDD85",
+      "colour": "Purple",
+      "hex": "#7B3FC4",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-access",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Fox",
+      "emoji": "\uD83E\uDD8A",
+      "colour": "Purple",
+      "hex": "#7B3FC4",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Owl",
+      "emoji": "\uD83E\uDD89",
+      "colour": "Purple",
+      "hex": "#7B3FC4",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-access",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Penguin",
+      "emoji": "\uD83D\uDC27",
+      "colour": "Purple",
+      "hex": "#7B3FC4",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Bat",
+      "emoji": "\uD83E\uDD87",
+      "colour": "Red",
+      "hex": "#D32F2F",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-workflow",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Owl",
+      "emoji": "\uD83E\uDD89",
+      "colour": "Red",
+      "hex": "#D32F2F",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-access",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Turtle",
+      "emoji": "\uD83D\uDC22",
+      "colour": "Sky",
+      "hex": "#29A3D6",
+      "points": 0,
+      "extra": 0,
+      "grade": 0,
+      "feedbackDue": false,
+      "issue": "no-access",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    }
+  ],
+  "reserved": [
+    {
+      "animal": "Hare",
+      "emoji": "\uD83D\uDC07",
+      "colour": "Gold",
+      "hex": "#D9B310"
+    },
+    {
+      "animal": "Bat",
+      "emoji": "\uD83E\uDD87",
+      "colour": "Grey",
+      "hex": "#78808A"
+    },
+    {
+      "animal": "Boar",
+      "emoji": "\uD83D\uDC17",
+      "colour": "Grey",
+      "hex": "#78808A"
+    },
+    {
+      "animal": "Gecko",
+      "emoji": "\uD83E\uDD8E",
+      "colour": "Lime",
+      "hex": "#7CB342"
+    },
+    {
+      "animal": "Fox",
+      "emoji": "\uD83E\uDD8A",
+      "colour": "Orange",
+      "hex": "#EF6C00"
+    },
+    {
+      "animal": "Owl",
+      "emoji": "\uD83E\uDD89",
+      "colour": "Orange",
+      "hex": "#EF6C00"
+    },
+    {
+      "animal": "Turtle",
+      "emoji": "\uD83D\uDC22",
+      "colour": "Orange",
+      "hex": "#EF6C00"
+    },
+    {
+      "animal": "Bear",
+      "emoji": "\uD83D\uDC3B",
+      "colour": "Pink",
+      "hex": "#E0569B"
+    },
+    {
+      "animal": "Beetle",
+      "emoji": "\uD83E\uDEB2",
+      "colour": "Pink",
+      "hex": "#E0569B"
+    },
+    {
+      "animal": "Bat",
+      "emoji": "\uD83E\uDD87",
+      "colour": "Purple",
+      "hex": "#7B3FC4"
+    },
+    {
+      "animal": "Fox",
+      "emoji": "\uD83E\uDD8A",
+      "colour": "Red",
+      "hex": "#D32F2F"
+    },
+    {
+      "animal": "Otter",
+      "emoji": "\uD83E\uDDA6",
+      "colour": "Sky",
+      "hex": "#29A3D6"
+    }
+  ]
+}
