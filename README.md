@@ -2,6 +2,8 @@
 
 *The FCPL lab runs as **SharpQuest**, the quest to learn C#. That's why the tooling and some code say SharpQuest.*
 
+**Quick links:** [Lab routine](https://x86bogdan.github.io/fcpl-2026/routine/) · [C# phrasebook](https://x86bogdan.github.io/fcpl-2026/cheatsheet/) · [Leaderboard](https://x86bogdan.github.io/sharpquest-2026/) · [Lab briefs](https://github.com/x86bogdan/fcpl-2026/tree/main/labs) · [Course repository](https://github.com/x86bogdan/fcpl-2026)
+
 > **Edit this section in session 1.** It's your first commit.
 >
 > **Theme:** _which of the catalogue themes you picked_

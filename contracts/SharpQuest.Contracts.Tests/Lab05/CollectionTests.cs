@@ -33,6 +33,18 @@ public class CollectionTests : Lab05TestBase
     }
 
     [Fact]
+    public void Your_collection_does_not_lean_on_the_catch_up_kit()
+    {
+        foreach (var type in new[] { Wiring.GetType(), CollectionType })
+        {
+            var borrowed = KitReach.Student.FirstKitMemberReachedBy(type);
+            Assert.True(borrowed is null,
+                $"{Name(type)} reaches {borrowed}, which comes from the catch-up kit. The kit unblocks later labs; " +
+                "it doesn't do this one. Write the enumerator and the indexers on your own store, and stop using the kit here.");
+        }
+    }
+
+    [Fact]
     public void There_is_an_indexer_by_position_and_one_by_id()
     {
         Assert.True(Indexer(CollectionType, typeof(int)) is not null,
