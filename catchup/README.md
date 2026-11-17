@@ -11,6 +11,6 @@ tests know which namespace it lives in. The lab stays *not started*, and a wirin
 own that hands back the kit's objects is reported by name.
 
 **To get those points back**, write your own version for your own theme, stop using the kit, and
-be verified in one of the last two sessions.
+ask to be verified at the start of a later lab: it counts as late work, worth up to 8.
 
 This folder is managed — `sq update` replaces it, so don't edit it in place.

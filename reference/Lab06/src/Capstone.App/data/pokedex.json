@@ -1,0 +1,7 @@
+[
+  { "id": "pkmn-001", "species": "Bulbasaur", "primaryType": "Grass", "level": 5 },
+  { "id": "pkmn-004", "species": "Charmander", "primaryType": "Fire", "level": 7, "nickname": "Ember" },
+  { "id": "pkmn-006", "species": "Charizard", "primaryType": "Fire", "secondaryType": "Dragon", "level": 36 },
+  { "id": "pkmn-025", "species": "Pikachu", "primaryType": "Electric", "level": 12 },
+  { "id": "pkmn-999", "species": "", "primaryType": "Normal" }
+]
