@@ -1,0 +1,2394 @@
+{
+  "title": "FCPL lab leaderboard",
+  "cohort": "2026",
+  "updated": "2026-11-26 00:53",
+  "labs": [
+    {
+      "lab": "02",
+      "published": true
+    },
+    {
+      "lab": "03",
+      "published": true
+    },
+    {
+      "lab": "04",
+      "published": true
+    },
+    {
+      "lab": "05",
+      "published": true
+    },
+    {
+      "lab": "06",
+      "published": true
+    },
+    {
+      "lab": "07",
+      "published": true
+    },
+    {
+      "lab": "08",
+      "published": true
+    },
+    {
+      "lab": "09",
+      "published": true
+    },
+    {
+      "lab": "10",
+      "published": false
+    },
+    {
+      "lab": "11",
+      "published": false
+    },
+    {
+      "lab": "12",
+      "published": false
+    }
+  ],
+  "feedbackGate": false,
+  "tenAt": 90,
+  "students": [
+    {
+      "animal": "Falcon",
+      "emoji": "\uD83E\uDD85",
+      "colour": "Purple",
+      "hex": "#7B3FC4",
+      "points": 84.5,
+      "extra": 0,
+      "grade": 9.4,
+      "feedbackDue": false,
+      "issue": "no-access",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "verified",
+          "points": 8
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 11
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 11
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 11
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 11
+        },
+        {
+          "lab": "08",
+          "status": "verified",
+          "points": 11
+        },
+        {
+          "lab": "09",
+          "status": "verified",
+          "points": 11.5
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "animal": "Penguin",
+      "emoji": "\uD83D\uDC27",
+      "colour": "Pink",
+      "hex": "#E0569B",
+      "points": 73,
+      "extra": 0,
+      "grade": 8.1,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 11
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 11.5
+        },
+        {
+          "lab": "08",
+          "status": "verified",
+          "points": 10.5
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 2
+    },
+    {
+      "animal": "Gecko",
+      "emoji": "\uD83E\uDD8E",
+      "colour": "Lime",
+      "hex": "#7CB342",
+      "points": 71,
+      "extra": 0,
+      "grade": 7.9,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 9.5
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "08",
+          "status": "verified",
+          "points": 11.5
+        },
+        {
+          "lab": "09",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 3
+    },
+    {
+      "animal": "Falcon",
+      "emoji": "\uD83E\uDD85",
+      "colour": "Green",
+      "hex": "#2E7D32",
+      "points": 70.5,
+      "extra": 0,
+      "grade": 7.8,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 9
+        },
+        {
+          "lab": "08",
+          "status": "verified",
+          "points": 11.5
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 4
+    },
+    {
+      "animal": "Hare",
+      "emoji": "\uD83D\uDC07",
+      "colour": "Gold",
+      "hex": "#D9B310",
+      "points": 70,
+      "extra": 0,
+      "grade": 7.8,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 9.5
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 9.5
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 10.5
+        },
+        {
+          "lab": "08",
+          "status": "verified",
+          "points": 10.5
+        },
+        {
+          "lab": "09",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 5
+    },
+    {
+      "animal": "Fox",
+      "emoji": "\uD83E\uDD8A",
+      "colour": "Purple",
+      "hex": "#7B3FC4",
+      "points": 68.5,
+      "extra": 0,
+      "grade": 7.6,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "03",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 12
+        },
+        {
+          "lab": "08",
+          "status": "verified",
+          "points": 10.5
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 6
+    },
+    {
+      "animal": "Otter",
+      "emoji": "\uD83E\uDDA6",
+      "colour": "Brown",
+      "hex": "#8D5A3B",
+      "points": 68,
+      "extra": 0,
+      "grade": 7.6,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 8.5
+        },
+        {
+          "lab": "08",
+          "status": "verified",
+          "points": 9.5
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 7
+    },
+    {
+      "animal": "Bear",
+      "emoji": "\uD83D\uDC3B",
+      "colour": "Purple",
+      "hex": "#7B3FC4",
+      "points": 68,
+      "extra": 0,
+      "grade": 7.6,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "05",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "07",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "08",
+          "status": "verified",
+          "points": 12
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 7
+    },
+    {
+      "animal": "Fox",
+      "emoji": "\uD83E\uDD8A",
+      "colour": "Lime",
+      "hex": "#7CB342",
+      "points": 67.5,
+      "extra": 0,
+      "grade": 7.5,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "03",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 9.5
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 11
+        },
+        {
+          "lab": "08",
+          "status": "verified",
+          "points": 11
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 9
+    },
+    {
+      "animal": "Toad",
+      "emoji": "\uD83D\uDC38",
+      "colour": "Lime",
+      "hex": "#7CB342",
+      "points": 67.5,
+      "extra": 0,
+      "grade": 7.5,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "verified",
+          "points": 10.5
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 8
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 10.5
+        },
+        {
+          "lab": "08",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "09",
+          "status": "verified",
+          "points": 10.5
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 9
+    },
+    {
+      "animal": "Fox",
+      "emoji": "\uD83E\uDD8A",
+      "colour": "Blue",
+      "hex": "#1E5BC6",
+      "points": 66.5,
+      "extra": 0,
+      "grade": 7.4,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 9.5
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 9
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "08",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 11
+    },
+    {
+      "animal": "Fox",
+      "emoji": "\uD83E\uDD8A",
+      "colour": "Pink",
+      "hex": "#E0569B",
+      "points": 63,
+      "extra": 0,
+      "grade": 7,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "late",
+          "points": 6
+        },
+        {
+          "lab": "03",
+          "status": "recovered",
+          "points": 8
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 9
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "08",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 12
+    },
+    {
+      "animal": "Hare",
+      "emoji": "\uD83D\uDC07",
+      "colour": "Grey",
+      "hex": "#78808A",
+      "points": 60,
+      "extra": 0,
+      "grade": 6.7,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "03",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "04",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "06",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "07",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "09",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 13
+    },
+    {
+      "animal": "Owl",
+      "emoji": "\uD83E\uDD89",
+      "colour": "Purple",
+      "hex": "#7B3FC4",
+      "points": 59.5,
+      "extra": 0,
+      "grade": 6.6,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "verified",
+          "points": 9.5
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 9.5
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 10.5
+        },
+        {
+          "lab": "08",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 14
+    },
+    {
+      "animal": "Turtle",
+      "emoji": "\uD83D\uDC22",
+      "colour": "Sky",
+      "hex": "#29A3D6",
+      "points": 58.5,
+      "extra": 0,
+      "grade": 6.5,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "late",
+          "points": 6
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 9.5
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 9.5
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 5.5
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 8
+        },
+        {
+          "lab": "08",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 15
+    },
+    {
+      "animal": "Falcon",
+      "emoji": "\uD83E\uDD85",
+      "colour": "Red",
+      "hex": "#D32F2F",
+      "points": 57,
+      "extra": 0,
+      "grade": 6.3,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "03",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 11
+        },
+        {
+          "lab": "08",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 16
+    },
+    {
+      "animal": "Turtle",
+      "emoji": "\uD83D\uDC22",
+      "colour": "Orange",
+      "hex": "#EF6C00",
+      "points": 56.5,
+      "extra": 0,
+      "grade": 6.3,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "03",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 4.5
+        },
+        {
+          "lab": "05",
+          "status": "recovered",
+          "points": 8
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 9.5
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 8.5
+        },
+        {
+          "lab": "08",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 17
+    },
+    {
+      "animal": "Gecko",
+      "emoji": "\uD83E\uDD8E",
+      "colour": "Pink",
+      "hex": "#E0569B",
+      "points": 48,
+      "extra": 0,
+      "grade": 5.3,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "03",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "04",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "05",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "06",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "08",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 18
+    },
+    {
+      "animal": "Otter",
+      "emoji": "\uD83E\uDDA6",
+      "colour": "Sky",
+      "hex": "#29A3D6",
+      "points": 47,
+      "extra": 0,
+      "grade": 5.2,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "late",
+          "points": 6
+        },
+        {
+          "lab": "03",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 11
+        },
+        {
+          "lab": "08",
+          "status": "verified",
+          "points": 11
+        },
+        {
+          "lab": "09",
+          "status": "verified",
+          "points": 11
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 19
+    },
+    {
+      "animal": "Otter",
+      "emoji": "\uD83E\uDDA6",
+      "colour": "Pink",
+      "hex": "#E0569B",
+      "points": 45.5,
+      "extra": 0,
+      "grade": 5.1,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "verified",
+          "points": 8
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 5.5
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "08",
+          "status": "verified",
+          "points": 8
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 20
+    },
+    {
+      "animal": "Hedgehog",
+      "emoji": "\uD83E\uDD94",
+      "colour": "Purple",
+      "hex": "#7B3FC4",
+      "points": 44,
+      "extra": 0,
+      "grade": 4.9,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 9
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 5
+        },
+        {
+          "lab": "06",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "08",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 21
+    },
+    {
+      "animal": "Hedgehog",
+      "emoji": "\uD83E\uDD94",
+      "colour": "Gold",
+      "hex": "#D9B310",
+      "points": 41,
+      "extra": 0,
+      "grade": 4.6,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 5
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "08",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 22
+    },
+    {
+      "animal": "Owl",
+      "emoji": "\uD83E\uDD89",
+      "colour": "Green",
+      "hex": "#2E7D32",
+      "points": 38,
+      "extra": 0,
+      "grade": 4.2,
+      "feedbackDue": false,
+      "issue": "no-workflow",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 7
+        },
+        {
+          "lab": "08",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "verified",
+          "points": 7
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 23
+    },
+    {
+      "animal": "Bear",
+      "emoji": "\uD83D\uDC3B",
+      "colour": "Green",
+      "hex": "#2E7D32",
+      "points": 36.5,
+      "extra": 0,
+      "grade": 4.1,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "08",
+          "status": "verified",
+          "points": 9
+        },
+        {
+          "lab": "09",
+          "status": "verified",
+          "points": 9.5
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 24
+    },
+    {
+      "animal": "Turtle",
+      "emoji": "\uD83D\uDC22",
+      "colour": "Lime",
+      "hex": "#7CB342",
+      "points": 30,
+      "extra": 0,
+      "grade": 3.3,
+      "feedbackDue": false,
+      "issue": "no-access",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "recovered",
+          "points": 6
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "08",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 25
+    },
+    {
+      "animal": "Penguin",
+      "emoji": "\uD83D\uDC27",
+      "colour": "Navy",
+      "hex": "#283C8C",
+      "points": 28,
+      "extra": 0,
+      "grade": 3.1,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "04",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "05",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 26
+    },
+    {
+      "animal": "Stag",
+      "emoji": "\uD83E\uDD8C",
+      "colour": "Gold",
+      "hex": "#D9B310",
+      "points": 22,
+      "extra": 0,
+      "grade": 2.4,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 4
+        },
+        {
+          "lab": "08",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 27
+    },
+    {
+      "animal": "Penguin",
+      "emoji": "\uD83D\uDC27",
+      "colour": "Purple",
+      "hex": "#7B3FC4",
+      "points": 19.5,
+      "extra": 0,
+      "grade": 2.2,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 9.5
+        },
+        {
+          "lab": "07",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 28
+    },
+    {
+      "animal": "Otter",
+      "emoji": "\uD83E\uDDA6",
+      "colour": "Purple",
+      "hex": "#7B3FC4",
+      "points": 17,
+      "extra": 0,
+      "grade": 1.9,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 5
+        },
+        {
+          "lab": "08",
+          "status": "verified",
+          "points": 6.5
+        },
+        {
+          "lab": "09",
+          "status": "verified",
+          "points": 5.5
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 29
+    },
+    {
+      "animal": "Bat",
+      "emoji": "\uD83E\uDD87",
+      "colour": "Red",
+      "hex": "#D32F2F",
+      "points": 16,
+      "extra": 0,
+      "grade": 1.8,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "verified",
+          "points": 10
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 30
+    },
+    {
+      "animal": "Otter",
+      "emoji": "\uD83E\uDDA6",
+      "colour": "Red",
+      "hex": "#D32F2F",
+      "points": 16,
+      "extra": 0,
+      "grade": 1.8,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "03",
+          "status": "late",
+          "points": 8
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 30
+    },
+    {
+      "animal": "Beetle",
+      "emoji": "\uD83E\uDEB2",
+      "colour": "Green",
+      "hex": "#2E7D32",
+      "points": 9,
+      "extra": 0,
+      "grade": 1,
+      "feedbackDue": false,
+      "issue": "no-access",
+      "labs": [
+        {
+          "lab": "02",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "04",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "verified",
+          "points": 3
+        },
+        {
+          "lab": "07",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "08",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 32
+    },
+    {
+      "animal": "Owl",
+      "emoji": "\uD83E\uDD89",
+      "colour": "Grey",
+      "hex": "#78808A",
+      "points": 6,
+      "extra": 0,
+      "grade": 0.7,
+      "feedbackDue": false,
+      "issue": null,
+      "labs": [
+        {
+          "lab": "02",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "03",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "04",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "05",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "06",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "07",
+          "status": "verified",
+          "points": 6
+        },
+        {
+          "lab": "08",
+          "status": "green",
+          "points": null
+        },
+        {
+          "lab": "09",
+          "status": "open",
+          "points": null
+        },
+        {
+          "lab": "10",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "11",
+          "status": "future",
+          "points": null
+        },
+        {
+          "lab": "12",
+          "status": "future",
+          "points": null
+        }
+      ],
+      "rank": 33
+    }
+  ],
+  "reserved": [
+    {
+      "animal": "Penguin",
+      "emoji": "\uD83D\uDC27",
+      "colour": "Green",
+      "hex": "#2E7D32"
+    },
+    {
+      "animal": "Bat",
+      "emoji": "\uD83E\uDD87",
+      "colour": "Grey",
+      "hex": "#78808A"
+    },
+    {
+      "animal": "Boar",
+      "emoji": "\uD83D\uDC17",
+      "colour": "Grey",
+      "hex": "#78808A"
+    },
+    {
+      "animal": "Fox",
+      "emoji": "\uD83E\uDD8A",
+      "colour": "Orange",
+      "hex": "#EF6C00"
+    },
+    {
+      "animal": "Otter",
+      "emoji": "\uD83E\uDDA6",
+      "colour": "Orange",
+      "hex": "#EF6C00"
+    },
+    {
+      "animal": "Owl",
+      "emoji": "\uD83E\uDD89",
+      "colour": "Orange",
+      "hex": "#EF6C00"
+    },
+    {
+      "animal": "Bear",
+      "emoji": "\uD83D\uDC3B",
+      "colour": "Pink",
+      "hex": "#E0569B"
+    },
+    {
+      "animal": "Bat",
+      "emoji": "\uD83E\uDD87",
+      "colour": "Purple",
+      "hex": "#7B3FC4"
+    },
+    {
+      "animal": "Fox",
+      "emoji": "\uD83E\uDD8A",
+      "colour": "Red",
+      "hex": "#D32F2F"
+    },
+    {
+      "animal": "Falcon",
+      "emoji": "\uD83E\uDD85",
+      "colour": "Sky",
+      "hex": "#29A3D6"
+    }
+  ]
+}
